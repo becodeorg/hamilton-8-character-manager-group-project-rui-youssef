@@ -8,7 +8,7 @@ async function getData() {
     data.forEach((element) => {
       // create container for each char
       const displaySingleChar = document.createElement("article");
-
+      displaySingleChar.className = "displayChar-container";
       // create content for each container
       // IMG and its content
       const imgSingleChar = document.createElement("img");
@@ -29,11 +29,17 @@ async function getData() {
       nameSingleChar.className = "name-character";
       nameSingleChar.textContent = element.name;
 
+      // BUTTON SEE MORE
+      const buttonSeeMoreChar = document.createElement("button");
+      buttonSeeMoreChar.className = "seeMore-character";
+      buttonSeeMoreChar.textContent = "See character";
+
       // APPEND EVERYTHING INTO THE DISPLAY CONTAINER
       displaySingleChar.append(
         imgSingleChar,
         nameSingleChar,
-        shortDescriptionSingleChar
+        shortDescriptionSingleChar,
+        buttonSeeMoreChar
       );
       containerDisplay.appendChild(displaySingleChar);
     });
