@@ -7,7 +7,7 @@ async function getData() {
     const data = response.data;
     data.forEach((element) => {
       // create container for each char
-      const displaySingleChar = document.createElement("div");
+      const displaySingleChar = document.createElement("article");
 
       // create content for each container
       // IMG and its content
