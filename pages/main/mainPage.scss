@@ -7,11 +7,7 @@
 }
 
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(109, 80, 146, 1) 18%,
-    rgba(202, 86, 99, 1) 67%
-  );
+@include backgroundColor;
 }
 
 header {
@@ -20,8 +16,11 @@ header {
   justify-content: space-between;
   margin: 4% 4%;
   h1 {
-    font-family: "Permanent Marker", cursive;
-    font-family: 40px;
-    color: white;
+    @include title;
+  }
+}
+body {
+  button {
+    @include button;
   }
 }
