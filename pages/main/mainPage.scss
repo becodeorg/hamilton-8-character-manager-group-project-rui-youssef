@@ -39,7 +39,6 @@ main {
   .containerCards {
     width: 80%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: 5rem;
     .displayChar-container {
@@ -71,9 +70,9 @@ main {
         padding: 0.5rem 1rem;
         width: 8rem;
         transition: 0.2s;
-        &:hover{
-            background-color: $Cleargrey;
-            cursor: pointer;
+        &:hover {
+          background-color: $Cleargrey;
+          cursor: pointer;
         }
       }
     }
