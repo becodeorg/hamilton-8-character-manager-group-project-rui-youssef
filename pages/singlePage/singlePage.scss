@@ -1,0 +1,32 @@
+@import "../../Abstracts/mixin.scss";
+@import "../../Abstracts/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include backgroundColor;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+header {
+  padding-top: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .header-text-input {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 4px solid $white;
+    h1 {
+      @include title;
+    }
+  }
+}

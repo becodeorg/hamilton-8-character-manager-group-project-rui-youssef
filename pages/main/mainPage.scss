@@ -62,6 +62,22 @@ main {
         color: $Cleargrey;
         font-style: $fontitalic;
       }
+      .long-description {
+        display: none;
+      }
+      .delete-character {
+        color: red;
+        background-color: $grey;
+        border: 2px solid $white;
+        border-radius: 0.8rem;
+        padding: 0.5rem 1rem;
+        width: 8rem;
+        transition: 0.2s;
+        &:hover {
+          background-color: $Cleargrey;
+          cursor: pointer;
+        }
+      }
       .seeMore-character {
         color: $white;
         background-color: $grey;

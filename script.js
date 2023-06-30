@@ -30,16 +30,43 @@ async function getData() {
       nameSingleChar.className = "name-character";
       nameSingleChar.textContent = element.name;
 
+      const descriptionOfCharacter = document.createElement("p");
+      descriptionOfCharacter.className = "long-description";
+      descriptionOfCharacter.textContent = element.description;
+
       // BUTTON SEE MORE
       const buttonSeeMoreChar = document.createElement("button");
       buttonSeeMoreChar.className = "seeMore-character";
       buttonSeeMoreChar.textContent = "See character";
+      buttonSeeMoreChar.addEventListener("click", () => {
+        // Store the selected character's ID in session storage
+        sessionStorage.setItem("selectedCharacterId", element.id);
+
+        // Navigate to the other page
+        location.href = "./pages/singlePage/singlePage.html";
+      });
+
+      const buttonToDeleteCard = document.createElement("button");
+      buttonToDeleteCard.className = "delete-character";
+      buttonToDeleteCard.textContent = "Delete character";
+      buttonToDeleteCard.addEventListener("click", async () => {
+        try {
+          await axios.delete(
+            `https://character-database.becode.xyz/characters/${element.id}`
+          );
+          displaySingleChar.remove();
+        } catch (error) {
+          console.log(error);
+        }
+      });
 
       // APPEND EVERYTHING INTO THE DISPLAY CONTAINER
       displaySingleChar.append(
         imgSingleChar,
         nameSingleChar,
         shortDescriptionSingleChar,
+        descriptionOfCharacter,
+        buttonToDeleteCard,
         buttonSeeMoreChar
       );
       containerDisplay.appendChild(displaySingleChar);
@@ -53,5 +80,5 @@ getData();
 
 const buttonCreateChar = document.querySelector(".btn.long");
 buttonCreateChar.addEventListener("click", () => {
-  location.href = "./pages/updateCh/updateCh.html";
+  location.href = "./pages/createChar/createChar.html";
 });
