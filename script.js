@@ -51,5 +51,5 @@ getData();
 
 const buttonCreateChar = document.querySelector(".btn.long");
 buttonCreateChar.addEventListener("click", () => {
-  location.href = "./pages/updateCh/updateCh.html";
+  location.href = "./pages/createChar/createChar.html";
 });
