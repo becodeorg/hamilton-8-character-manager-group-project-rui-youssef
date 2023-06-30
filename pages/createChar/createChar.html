@@ -12,7 +12,7 @@
       <h1>Character Manager</h1>
     </header>
     <main>
-      <form action="">
+      <form id="createNewChar">
         <div class="upload-img">
           <input type="file" id="image" name="image" style="display: none" />
           <label for="image">Upload image</label>
@@ -36,7 +36,9 @@
           name="description"
         />
         <div class="buttons">
-          <button type="submit" class="btn save">Save changes</button>
+          <button type="submit" form="createNewChar" class="btn save">
+            Save changes
+          </button>
           <button class="btn delete">Delete changes</button>
         </div>
       </form>

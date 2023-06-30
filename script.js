@@ -1,4 +1,5 @@
 const containerDisplay = document.querySelector(".containerCards");
+
 async function getData() {
   try {
     const response = await axios.get(
@@ -6,10 +7,13 @@ async function getData() {
     );
     const data = response.data;
     data.forEach((element) => {
+      console.log(element);
       // create container for each char
       const displaySingleChar = document.createElement("article");
       displaySingleChar.className = "displayChar-container";
+
       // create content for each container
+
       // IMG and its content
       const imgSingleChar = document.createElement("img");
       imgSingleChar.className = "charImage";
@@ -41,6 +45,8 @@ async function getData() {
         shortDescriptionSingleChar,
         buttonSeeMoreChar
       );
+
+      // Append the char container into the chars container
       containerDisplay.appendChild(displaySingleChar);
     });
   } catch (error) {
