@@ -50,27 +50,12 @@ async function getData() {
         location.href = "./pages/singlePage/singlePage.html";
       });
 
-      const buttonToDeleteCard = document.createElement("button");
-      buttonToDeleteCard.className = "delete-character";
-      buttonToDeleteCard.textContent = "Delete character";
-      buttonToDeleteCard.addEventListener("click", async () => {
-        try {
-          await axios.delete(
-            `https://character-database.becode.xyz/characters/${element.id}`
-          );
-          displaySingleChar.remove();
-        } catch (error) {
-          console.log(error);
-        }
-      });
-
       // APPEND EVERYTHING INTO THE DISPLAY CONTAINER
       displaySingleChar.append(
         imgSingleChar,
         nameSingleChar,
         shortDescriptionSingleChar,
         descriptionOfCharacter,
-        buttonToDeleteCard,
         buttonSeeMoreChar
       );
 
