@@ -50,11 +50,11 @@ createCharForm.addEventListener("submit", async (e) => {
 
   try {
     const response = await fetch(
-      "https://character-database.becode.xyz/characters", // Send a POST request to this URL
+      "https://character-database.becode.xyz/characters",
       {
-        method: "POST", // Use the POST method
+        method: "POST",
         headers: {
-          "Content-Type": "application/json", // Set the request content type to JSON
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(obj), // Convert the data object to JSON and send it as the request body
       }
