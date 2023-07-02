@@ -52,6 +52,7 @@ createCharForm.addEventListener("submit", async (e) => {
     );
     const responseData = await response.json();
     console.log(responseData);
+    window.location.href = "../../index.html";
   } catch (error) {
     console.log(`There has been an error, ${error}!`);
   }
