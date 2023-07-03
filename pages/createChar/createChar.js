@@ -56,10 +56,8 @@ async function readImage(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (e) => {
-      const original = e.target.result;
-      const subOriginal = original.split(",")[1];
-      resolve(subOriginal);
       displayImg.style.backgroundImage = `url(${e.target.result})`;
+      resolve(displayImg.style.backgroundImage.split(",")[1]);
     };
     reader.onerror = () => {
       reject(new Error("Error occurred while reading the file."));
@@ -89,11 +87,12 @@ async function populateDataObj() {
 
 // Add a submit event listener to the form
 createCharForm.addEventListener("submit", async (e) => {
-  console.log(imageForm.value);
   e.preventDefault();
   if (id !== null) {
     try {
       const obj = await populateDataObj();
+      const image = await readImage(uploadImg);
+      obj.image = image;
       const response = await fetch(
         `https://character-database.becode.xyz/characters/${id}`,
         {
@@ -104,6 +103,11 @@ createCharForm.addEventListener("submit", async (e) => {
           body: JSON.stringify(obj),
         }
       );
+      if (response.ok) {
+        const responseData = await response.data;
+        console.log(responseData);
+        window.location.href = "../../index.html";
+      }
     } catch (error) {
       console.log(`There has been an error: ${error}`);
     }
