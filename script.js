@@ -8,7 +8,6 @@ async function getData() {
     const data = response.data;
 
     data.forEach((element) => {
-      console.log(element);
       // create container for each char
       const displaySingleChar = document.createElement("article");
       displaySingleChar.className = "displayChar-container";
@@ -71,5 +70,6 @@ getData();
 
 const buttonCreateChar = document.querySelector(".btn.long");
 buttonCreateChar.addEventListener("click", () => {
+  sessionStorage.clear();
   location.href = "./pages/createChar/createChar.html";
 });

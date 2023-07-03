@@ -40,6 +40,15 @@ main form {
   border-radius: 1rem;
   padding: 3rem;
 }
+main form .displayImage {
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  background-color: #a5a4a4;
+  background-image: url("");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 main form .upload-img {
   width: 100%;
   display: flex;
