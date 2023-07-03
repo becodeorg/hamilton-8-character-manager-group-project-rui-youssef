@@ -1,4 +1,3 @@
-// Select the form element with the ID "createNewChar"
 const createCharForm = document.querySelector("#createNewChar");
 // Form inputs
 const imageForm = document.querySelector("#image");
