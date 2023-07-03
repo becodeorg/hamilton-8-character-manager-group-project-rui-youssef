@@ -45,7 +45,6 @@ main form .displayImage {
   width: 8rem;
   height: 8rem;
   background-color: #a5a4a4;
-  background-image: url("");
   background-size: cover;
   background-repeat: no-repeat;
 }

@@ -38,7 +38,7 @@ window.addEventListener("load", async () => {
     `https://character-database.becode.xyz/characters/${id}`
   );
   const data = await response.json();
-  displayImg.style.backgroundImage = `url(data:image/png;base64, ${data.image}`;
+  displayImg.style.backgroundImage = `url(data:image/png;base64,${data.image})`;
 
   populateForm();
 });
