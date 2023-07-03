@@ -50,22 +50,26 @@ imageForm.addEventListener("change", () => {
 async function readImage(file) {
   const fileType = file.files[0];
   // Check if the file is an image by verifying its MIME type
-  if (fileType.type && !fileType.type.startsWith("image/")) {
-    throw new Error("File is not an image.");
+  if (fileType) {
+    if (fileType.type && !fileType.type.startsWith("image/")) {
+      throw new Error("File is not an image.");
+    } else {
+      // Create a Promise to handle the asynchronous file reading
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          displayImg.style.backgroundImage = `url(${e.target.result})`;
+          resolve(displayImg.style.backgroundImage.split(",")[1]);
+        };
+        reader.onerror = () => {
+          reject(new Error("Error occurred while reading the file."));
+        };
+        reader.readAsDataURL(fileType);
+      });
+    }
+  } else {
+    return displayImg.style.backgroundImage.split(",")[1];
   }
-
-  // Create a Promise to handle the asynchronous file reading
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      displayImg.style.backgroundImage = `url(${e.target.result})`;
-      resolve(displayImg.style.backgroundImage.split(",")[1]);
-    };
-    reader.onerror = () => {
-      reject(new Error("Error occurred while reading the file."));
-    };
-    reader.readAsDataURL(fileType);
-  });
 }
 
 // Function to populate the form data and convert the selected image to base64 format
@@ -91,6 +95,10 @@ async function populateDataObj() {
 createCharForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (id !== null) {
+    const obj = await populateDataObj();
+    const image = await readImage(uploadImg);
+    obj.image = image;
+    console.log(obj);
     try {
       const obj = await populateDataObj();
       const image = await readImage(uploadImg);
