@@ -1,7 +1,4 @@
-// Select the form element with the ID "createNewChar"
 const createCharForm = document.querySelector("#createNewChar");
-
-// Select the input element with the ID "image"
 const uploadImg = document.getElementById("image");
 
 // Function to read the selected image file and return the base64-encoded image data

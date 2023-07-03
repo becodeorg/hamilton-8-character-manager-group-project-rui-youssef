@@ -1,10 +1,11 @@
 const containerToStore = document.querySelector(".container");
 const selectedCharacterId = sessionStorage.getItem("selectedCharacterId");
-axios
-  .get(
-    `https://character-database.becode.xyz/characters/${selectedCharacterId}`
-  )
-  .then((response) => {
+
+async function fetchCharacterData() {
+  try {
+    const response = await axios.get(
+      `https://character-database.becode.xyz/characters/${selectedCharacterId}`
+    );
     const SelectedCardData = response.data;
 
     const displayedImage = document.createElement("img");
@@ -41,20 +42,12 @@ axios
         console.log(error);
       }
     });
+
     const buttonToUpdate = document.createElement("button");
     buttonToUpdate.className = "update-character";
     buttonToUpdate.textContent = "Update character";
     buttonToUpdate.addEventListener("click", async () => {
-      sessionStorage.setItem("selectedCharacterName", SelectedCardData.image);
-      sessionStorage.setItem(
-        "selectedCharacterShortDescription",
-        SelectedCardData.shortDescription
-      );
-      sessionStorage.setItem("selectedCharacterName", SelectedCardData.name);
-      sessionStorage.setItem(
-        "selectedCharacterDescription",
-        SelectedCardData.description
-      );
+      sessionStorage.setItem("selectedCharacterId", SelectedCardData.id);
       window.location.href = "../../pages/createChar/createChar.html";
     });
 
@@ -65,7 +58,9 @@ axios
     containerToStore.appendChild(divForButton);
     divForButton.appendChild(buttonToDeleteCard);
     divForButton.appendChild(buttonToUpdate);
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error(error);
-  });
+  }
+}
+
+fetchCharacterData();

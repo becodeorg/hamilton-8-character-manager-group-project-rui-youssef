@@ -73,3 +73,28 @@ const buttonCreateChar = document.querySelector(".btn.long");
 buttonCreateChar.addEventListener("click", () => {
   location.href = "./pages/createChar/createChar.html";
 });
+
+function searchBar() {
+  const searchInput = document.getElementById("search");
+  const cards = document.getElementsByClassName("name-character");
+  const cardsContainer = document.getElementsByClassName(
+    "displayChar-container"
+  );
+
+  searchInput.addEventListener("input", function () {
+    const searchValue = searchInput.value.toLowerCase();
+
+    Array.from(cardsContainer).forEach((container) => {
+      const card = container.querySelector(".name-character");
+      const cardName = card.innerText.toLowerCase();
+
+      if (cardName.includes(searchValue)) {
+        container.style.display = "flex";
+      } else {
+        container.style.display = "none";
+      }
+    });
+  });
+}
+
+searchBar();
