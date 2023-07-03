@@ -1,4 +1,4 @@
-// STILL HAS A BUG ON UPDATE CHAR
+// STILL HAS A BUG ON UPDATE CHARACTERS
 
 const createCharForm = document.querySelector("#createNewChar");
 // Form inputs
