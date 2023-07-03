@@ -1,16 +1,12 @@
-// Select the form element with the ID "createNewChar"
 const createCharForm = document.querySelector("#createNewChar");
 // Form inputs
 const imageForm = document.querySelector("#image");
 const nameForm = document.querySelector("#name");
 const shortDescriptionForm = document.querySelector("#shortDescription");
 const descriptionForm = document.querySelector("#description");
-// Form inputs
 const displayImg = document.querySelector(".displayImage");
-
 // Select the input element with the ID "image"
 const uploadImg = document.getElementById("image");
-
 // Get (if there's any) the id of the current character
 const id = sessionStorage.getItem("selectedCharacterId");
 
@@ -29,7 +25,6 @@ async function populateForm() {
     nameForm.value = "";
     shortDescriptionForm.value = "";
     descriptionForm.value = "";
-    // imageForm.value = "";
   }
 }
 
@@ -39,7 +34,7 @@ window.addEventListener("load", async () => {
     `https://character-database.becode.xyz/characters/${id}`
   );
   const data = await response.json();
-  displayImg.style.backgroundImage = `url(data:image/png;base64, ${data.image}`;
+  displayImg.style.backgroundImage = `url(data:image/png;base64,${data.image})`;
 
   populateForm();
 });
