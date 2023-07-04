@@ -21,7 +21,7 @@ Introduction project concerning API.
 
 This was the given design that we had to recreate and build our project around:
 #### The main page
-![exemple](https://github.com/becodeorg/LIE-Hamilton-8/blob/main/02-the-hills/02-character-manager/design/Main%20page%20-%20Desktop.jpg?raw=true)
+![exemple](https://github.com/becodeorg/LIE-Hamilton-8/blob/main/02-the-hills/02-character-manager/design/Main%20page%20-%20Desktop.jpg?raw=true =250x)
 
 #### The single character page
 ![exemple](https://github.com/becodeorg/LIE-Hamilton-8/blob/main/02-the-hills/02-character-manager/design/Single%20Charachter%20-%20Desktop.jpg?raw=true)
