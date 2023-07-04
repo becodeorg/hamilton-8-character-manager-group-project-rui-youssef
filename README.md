@@ -20,8 +20,14 @@ Introduction project concerning API.
 ### Given Example:
 
 This was the given design that we had to recreate and build our project around:
-![project](https://github.com/becodeorg/LIE-Hamilton-8/blob/main/02-the-hills/02-character-manager/design/Main%20page%20-%20Desktop.jpg?raw=true)
+#### The main page
+![exemple](https://github.com/becodeorg/LIE-Hamilton-8/blob/main/02-the-hills/02-character-manager/design/Main%20page%20-%20Desktop.jpg?raw=true)
 
+#### The single character page
+![exemple](https://github.com/becodeorg/LIE-Hamilton-8/blob/main/02-the-hills/02-character-manager/design/Single%20Charachter%20-%20Desktop.jpg?raw=true)
+
+#### The create/update character page
+![exemple](https://github.com/becodeorg/LIE-Hamilton-8/blob/main/02-the-hills/02-character-manager/design/Create%20and%20update%20-%20Desktop.jpg?raw=true)
 ### Live preview:
 
 If you click on [this link](https://becodeorg.github.io/hamilton-8-character-manager-group-project-rui-youssef/) it will allow you to see how our final project looks like.
