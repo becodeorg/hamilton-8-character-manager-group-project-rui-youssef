@@ -1,16 +1,9 @@
-const containerToStore = document.querySelector(".container");
-const selectedCharacterId = sessionStorage.getItem("selectedCharacterId");
-
-// Function that creates a new element
-const createElement = (element, className, textContent = "") => {
-  const newElement = document.createElement(element);
-  newElement.className = className;
-  newElement.textContent = textContent;
-
-  return newElement;
-};
+import createElement from "../../modules/createElementFactory.js";
 
 const fetchCharacterData = async () => {
+  const containerToStore = document.querySelector(".container");
+  const selectedCharacterId = sessionStorage.getItem("selectedCharacterId");
+
   try {
     const response = await axios.get(
       `https://character-database.becode.xyz/characters/${selectedCharacterId}`
@@ -42,6 +35,7 @@ const fetchCharacterData = async () => {
       "delete-character",
       "Delete character"
     );
+    console.log(description);
     buttonToDeleteCard.addEventListener("click", async () => {
       try {
         await axios.delete(
