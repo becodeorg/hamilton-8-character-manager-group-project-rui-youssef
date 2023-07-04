@@ -1,4 +1,5 @@
 import createElement from "../../modules/createElementFactory.js";
+import appendChilds from "../../modules/appendChildren.js";
 
 const fetchCharacterData = async () => {
   const containerToStore = document.querySelector(".container");
@@ -8,11 +9,12 @@ const fetchCharacterData = async () => {
     const response = await axios.get(
       `https://character-database.becode.xyz/characters/${selectedCharacterId}`
     );
-    const selectedCardData = response.data;
+    const selectedCardData = await response.data;
 
-    const displayedImage = createElement("img", "charImage");
-    displayedImage.src = `data:image/png;base64, ${selectedCardData.image}`;
-    displayedImage.alt = "Image of the character";
+    const displayedImage = createElement("img", "charImage", "", {
+      src: `data:image/png;base64, ${selectedCardData.image}`,
+      alt: "Character image",
+    });
 
     const name = createElement("p", "name-character", selectedCardData.name);
 
@@ -35,7 +37,6 @@ const fetchCharacterData = async () => {
       "delete-character",
       "Delete character"
     );
-    console.log(description);
     buttonToDeleteCard.addEventListener("click", async () => {
       try {
         await axios.delete(
@@ -57,14 +58,16 @@ const fetchCharacterData = async () => {
       sessionStorage.setItem("selectedCharacterId", selectedCardData.id);
       window.location.href = "../../pages/createChar/createChar.html";
     });
-
-    containerToStore.appendChild(displayedImage);
-    containerToStore.appendChild(name);
-    containerToStore.appendChild(shortDescription);
-    containerToStore.appendChild(description);
-    containerToStore.appendChild(divForButton);
-    divForButton.appendChild(buttonToDeleteCard);
-    divForButton.appendChild(buttonToUpdate);
+    // Append Children
+    appendChilds(
+      containerToStore,
+      displayedImage,
+      name,
+      shortDescription,
+      description,
+      divForButton
+    );
+    appendChilds(divForButton, buttonToUpdate, buttonToDeleteCard);
   } catch (error) {
     console.error(error);
   }

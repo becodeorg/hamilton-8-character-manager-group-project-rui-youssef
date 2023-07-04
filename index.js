@@ -1,20 +1,14 @@
+import createElement from "./modules/createElementFactory.js";
+import appendChilds from "../../modules/appendChildren.js";
+
 const containerDisplay = document.querySelector(".containerCards");
-
-// Function that creates a new element
-const createElement = (element, className, textContent = "") => {
-  const newElement = document.createElement(element);
-  newElement.className = className;
-  newElement.textContent = textContent;
-
-  return newElement;
-};
 
 const getDataFromApi = async () => {
   try {
     const response = await axios.get(
       "https://character-database.becode.xyz/characters"
     );
-    const data = response.data;
+    const data = await response.data;
 
     data.forEach((element) => {
       // create container for each char
@@ -22,16 +16,12 @@ const getDataFromApi = async () => {
         "article",
         "displayChar-container"
       );
-
       // create content for each container
-
       // IMG and its content
-      const imgSingleChar = createElement("img", "charImage");
-      imgSingleChar.setAttribute(
-        "src",
-        `data:image/png;base64, ${element.image}`
-      );
-      imgSingleChar.setAttribute("alt", "image of the character");
+      const imgSingleChar = createElement("img", "charImage", "", {
+        src: `data:image/png;base64, ${element.image}`,
+        alt: "Character image",
+      });
 
       // SHORT DESCRIPTION OF CHARACTER AND ITS CONTENT
       const shortDescriptionSingleChar = createElement(
@@ -39,17 +29,14 @@ const getDataFromApi = async () => {
         "short-description-character",
         element.shortDescription
       );
-
       // NAME OF CHARACTER AND ITS CONTENT
       const nameSingleChar = createElement("p", "name-character", element.name);
-
       // DESCRIPTION OF CHAR AND ITS CONTENT
       const descriptionOfCharacter = createElement(
         "p",
         "long-description",
         element.description
       );
-
       // BUTTON SEE MORE
       const buttonSeeMoreChar = createElement(
         "button",
@@ -59,15 +46,20 @@ const getDataFromApi = async () => {
       buttonSeeMoreChar.addEventListener("click", () => {
         // Store the selected character's ID in session storage
         sessionStorage.setItem("selectedCharacterId", element.id);
+
         // Navigate to the other page
         location.href = "./pages/singlePage/singlePage.html";
       });
 
       // Append the char container into the chars container
-      containerDisplay.appendChild(displaySingleChar);
+      appendChilds(containerDisplay, displaySingleChar);
 
       // APPEND EVERYTHING INTO THE DISPLAY CONTAINER
-      displaySingleChar.append(
+
+      appendChilds(
+        //Parent
+        displaySingleChar,
+        //Childs
         imgSingleChar,
         nameSingleChar,
         shortDescriptionSingleChar,

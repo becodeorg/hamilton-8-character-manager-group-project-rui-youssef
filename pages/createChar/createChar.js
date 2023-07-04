@@ -1,4 +1,3 @@
-// STILL HAS A BUG ON UPDATE CHARACTERS
 const createCharForm = document.querySelector("#createNewChar");
 // Form inputs
 const imageForm = document.querySelector("#image");
