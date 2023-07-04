@@ -60,12 +60,12 @@ main .container .short-description-character {
 main .container .long-description {
   color: white;
 }
-main .container .div-for-button {
+main .container .buttons-container {
   display: flex;
   gap: 5%;
   justify-content: center;
 }
-main .container .div-for-button .delete-character {
+main .container .buttons-container .delete-character {
   color: white;
   background-color: red;
   border: none;
@@ -75,11 +75,11 @@ main .container .div-for-button .delete-character {
   transition: 0.2s;
   align-self: center;
 }
-main .container .div-for-button .delete-character:hover {
+main .container .buttons-container .delete-character:hover {
   background-color: #a5a4a4;
   cursor: pointer;
 }
-main .container .div-for-button .update-character {
+main .container .buttons-container .update-character {
   color: white;
   background-color: #4b7cfc;
   border: none;
@@ -89,7 +89,7 @@ main .container .div-for-button .update-character {
   transition: 0.2s;
   align-self: center;
 }
-main .container .div-for-button .update-character:hover {
+main .container .buttons-container .update-character:hover {
   background-color: #a5a4a4;
   cursor: pointer;
 }

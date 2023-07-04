@@ -1,36 +1,47 @@
 const containerToStore = document.querySelector(".container");
 const selectedCharacterId = sessionStorage.getItem("selectedCharacterId");
 
-async function fetchCharacterData() {
+// Function that creates a new element
+const createElement = (element, className, textContent = "") => {
+  const newElement = document.createElement(element);
+  newElement.className = className;
+  newElement.textContent = textContent;
+
+  return newElement;
+};
+
+const fetchCharacterData = async () => {
   try {
     const response = await axios.get(
       `https://character-database.becode.xyz/characters/${selectedCharacterId}`
     );
-    const SelectedCardData = response.data;
+    const selectedCardData = response.data;
 
-    const displayedImage = document.createElement("img");
-    displayedImage.src = `data:image/png;base64, ${SelectedCardData.image}`;
+    const displayedImage = createElement("img", "charImage");
+    displayedImage.src = `data:image/png;base64, ${selectedCardData.image}`;
     displayedImage.alt = "Image of the character";
-    displayedImage.className = "charImage";
 
-    const name = document.createElement("p");
-    name.textContent = SelectedCardData.name;
-    name.className = "name-character";
+    const name = createElement("p", "name-character", selectedCardData.name);
 
-    const shortDescription = document.createElement("p");
-    shortDescription.textContent = SelectedCardData.shortDescription;
-    shortDescription.className = "short-description-character";
+    const shortDescription = createElement(
+      "p",
+      "short-description-character",
+      selectedCardData.shortDescription
+    );
 
-    const description = document.createElement("p");
-    description.textContent = SelectedCardData.description;
-    description.className = "long-description";
+    const description = createElement(
+      "p",
+      "long-description",
+      selectedCardData.description
+    );
 
-    const divForButton = document.createElement("div");
-    divForButton.className = "div-for-button";
+    const divForButton = createElement("div", "buttons-container");
 
-    const buttonToDeleteCard = document.createElement("button");
-    buttonToDeleteCard.className = "delete-character";
-    buttonToDeleteCard.textContent = "Delete character";
+    const buttonToDeleteCard = createElement(
+      "button",
+      "delete-character",
+      "Delete character"
+    );
     buttonToDeleteCard.addEventListener("click", async () => {
       try {
         await axios.delete(
@@ -43,11 +54,13 @@ async function fetchCharacterData() {
       }
     });
 
-    const buttonToUpdate = document.createElement("button");
-    buttonToUpdate.className = "update-character";
-    buttonToUpdate.textContent = "Update character";
+    const buttonToUpdate = createElement(
+      "button",
+      "update-character",
+      "Update character"
+    );
     buttonToUpdate.addEventListener("click", async () => {
-      sessionStorage.setItem("selectedCharacterId", SelectedCardData.id);
+      sessionStorage.setItem("selectedCharacterId", selectedCardData.id);
       window.location.href = "../../pages/createChar/createChar.html";
     });
 
@@ -61,6 +74,6 @@ async function fetchCharacterData() {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 fetchCharacterData();

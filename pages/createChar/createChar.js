@@ -1,5 +1,4 @@
 // STILL HAS A BUG ON UPDATE CHARACTERS
-
 const createCharForm = document.querySelector("#createNewChar");
 // Form inputs
 const imageForm = document.querySelector("#image");
@@ -13,8 +12,7 @@ const uploadImg = document.getElementById("image");
 const id = sessionStorage.getItem("selectedCharacterId");
 
 // Delete or populate form according to if there's an Id or not
-
-async function populateForm() {
+const populateForm = async () => {
   if (id !== null) {
     const response = await axios.get(
       `https://character-database.becode.xyz/characters/${id}`
@@ -28,7 +26,7 @@ async function populateForm() {
     shortDescriptionForm.value = "";
     descriptionForm.value = "";
   }
-}
+};
 
 // When page load display image and populate form (if theres any img/form value)
 window.addEventListener("load", async () => {
@@ -47,7 +45,7 @@ imageForm.addEventListener("change", () => {
 });
 
 // Function to read the selected image file and return the base64-encoded image data
-async function readImage(file) {
+const readImage = async (file) => {
   const fileType = file.files[0];
   // Check if the file is an image by verifying its MIME type
   if (fileType) {
@@ -70,15 +68,14 @@ async function readImage(file) {
   } else {
     return displayImg.style.backgroundImage.split(",")[1];
   }
-}
+};
 
 // Function to populate the form data and convert the selected image to base64 format
-async function populateDataObj() {
+const populateDataObj = async () => {
   // Collect all form data
   const allFormData = new FormData(createCharForm);
   // Convert form data to a regular object
   const data = Object.fromEntries(allFormData);
-
   if (id === null) {
     try {
       const convertedValue = await readImage(uploadImg);
@@ -87,9 +84,8 @@ async function populateDataObj() {
       console.error(error);
     }
   }
-
   return data;
-}
+};
 
 // Add a submit event listener to the form
 createCharForm.addEventListener("submit", async (e) => {
@@ -98,7 +94,6 @@ createCharForm.addEventListener("submit", async (e) => {
     const obj = await populateDataObj();
     const image = await readImage(uploadImg);
     obj.image = image;
-    console.log(obj);
     try {
       const obj = await populateDataObj();
       const image = await readImage(uploadImg);
