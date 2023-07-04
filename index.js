@@ -1,5 +1,5 @@
 import createElement from "./modules/createElementFactory.js";
-import appendChilds from "../../modules/appendChildren.js";
+import appendChilds from "./modules/appendChildren.js";
 
 const containerDisplay = document.querySelector(".containerCards");
 
