@@ -88,3 +88,55 @@ footer {
     @include button;
   }
 }
+
+@media (max-width: 1400px) {
+  main {
+    .containerCards {
+      .displayChar-container {
+        width: calc(33.33% - 5rem);
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  header {
+    .header-text-input {
+      input {
+        width: 15rem;
+      }
+    }
+  }
+  main {
+    .containerCards {
+      .displayChar-container {
+        width: calc(50% - 5rem);
+      }
+    }
+  }
+}
+
+@media (max-width: 770px) {
+  header {
+    .header-text-input {
+      flex-direction: column;
+      gap: 2rem;
+      input {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+  main {
+    .containerCards {
+      .displayChar-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        .seeMore-character {
+          align-self: center;
+        }
+      }
+    }
+  }
+}
