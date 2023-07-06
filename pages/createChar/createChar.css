@@ -69,10 +69,16 @@ main form .upload-img label:hover {
   border: 1px solid white;
 }
 main form #name,
-main form #shortDescription,
+main form #shortDescription {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #a5a4a4;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+}
 main form #description {
   width: 100%;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem;
   background-color: #a5a4a4;
   border: 1px solid white;
   border-radius: 0.5rem;
@@ -81,13 +87,15 @@ main form .buttons {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  width: 100%;
 }
 main form .buttons .save {
   background-color: #4b7cfc;
   color: white;
-  padding: 0.5% 1%;
+  padding: 0.5rem;
+  width: 11rem;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   border: none;
 }
@@ -98,9 +106,10 @@ main form .buttons .save:hover {
 main form .buttons .delete {
   background-color: red;
   color: white;
-  padding: 0.5% 1%;
+  padding: 0.5rem;
+  width: 11rem;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   border: none;
 }
