@@ -1,5 +1,6 @@
 import createElement from "./modules/createElementFactory.js";
 import appendChilds from "./modules/appendChildren.js";
+import searchBar from "./modules/searchBar.js";
 
 const containerDisplay = document.querySelector(".containerCards");
 
@@ -80,26 +81,4 @@ buttonCreateChar.addEventListener("click", () => {
   location.href = "./pages/createChar/createChar.html";
 });
 
-const searchBarFunctionality = async () => {
-  const searchInput = document.getElementById("search");
-  const cardsContainer = document.getElementsByClassName(
-    "displayChar-container"
-  );
-
-  searchInput.addEventListener("input", function () {
-    const searchValue = searchInput.value.toLowerCase();
-
-    Array.from(cardsContainer).forEach((container) => {
-      const card = container.querySelector(".name-character");
-      const cardName = card.innerText.toLowerCase();
-
-      if (cardName.includes(searchValue)) {
-        container.style.display = "flex";
-      } else {
-        container.style.display = "none";
-      }
-    });
-  });
-};
-
-searchBarFunctionality();
+searchBar();
