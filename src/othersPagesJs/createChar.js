@@ -110,7 +110,7 @@ createCharForm.addEventListener("submit", async (e) => {
       if (response.ok) {
         const responseData = await response.data;
         console.log(responseData);
-        window.location.href = "../../index.html";
+        window.location.href = "../../dist/index.html";
       }
     } catch (error) {
       console.log(`There has been an error: ${error}`);
@@ -133,7 +133,7 @@ createCharForm.addEventListener("submit", async (e) => {
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData);
-        window.location.href = "../../index.html";
+        window.location.href = "../../dist/index.html";
       }
     } catch (error) {
       console.log(`There has been an error, ${error}!`);

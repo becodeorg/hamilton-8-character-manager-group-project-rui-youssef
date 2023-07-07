@@ -1,5 +1,5 @@
-import createElement from "../../modules/createElementFactory.js";
-import appendChilds from "../../modules/appendChildren.js";
+import createElement from "../modules/createElementFactory.js";
+import appendChilds from "../modules/appendChildren.js";
 
 const fetchCharacterData = async () => {
   const containerToStore = document.querySelector(".container");
@@ -43,7 +43,7 @@ const fetchCharacterData = async () => {
           `https://character-database.becode.xyz/characters/${selectedCharacterId}`
         );
         containerToStore.remove();
-        window.location.href = "../../index.html";
+        window.location.href = "../../dist/index.html";
       } catch (error) {
         console.log(error);
       }
@@ -56,7 +56,7 @@ const fetchCharacterData = async () => {
     );
     buttonToUpdate.addEventListener("click", async () => {
       sessionStorage.setItem("selectedCharacterId", selectedCardData.id);
-      window.location.href = "../../pages/createChar/createChar.html";
+      window.location.href = "../../dist/html/createChar.html";
     });
     // Append Children
     appendChilds(

@@ -1,6 +1,6 @@
-import createElement from "./modules/createElementFactory.js";
+import createElement from "./modules/createElementFactory";
 import appendChilds from "./modules/appendChildren.js";
-import searchBar from "./modules/searchBar.js";
+import searchBar from "./modules/searchBar";
 
 const containerDisplay = document.querySelector(".containerCards");
 
@@ -49,14 +49,18 @@ const getDataFromApi = async () => {
         sessionStorage.setItem("selectedCharacterId", element.id);
 
         // Navigate to the other page
-        location.href = "./pages/singlePage/singlePage.html";
+        location.href = "./html/singlePage.html";
       });
 
       // Append the char container into the chars container
-      appendChilds(containerDisplay, displaySingleChar);
+      appendChilds(
+        //Parent
+        containerDisplay,
+        //Child
+        displaySingleChar
+      );
 
       // APPEND EVERYTHING INTO THE DISPLAY CONTAINER
-
       appendChilds(
         //Parent
         displaySingleChar,
@@ -78,7 +82,7 @@ getDataFromApi();
 const buttonCreateChar = document.querySelector(".btn.long");
 buttonCreateChar.addEventListener("click", () => {
   sessionStorage.clear();
-  location.href = "./pages/createChar/createChar.html";
+  location.href = "./html/createChar.html";
 });
 
 searchBar();
