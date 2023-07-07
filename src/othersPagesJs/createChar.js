@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const createCharForm = document.querySelector("#createNewChar");
 // Form inputs
 const imageForm = document.querySelector("#image");

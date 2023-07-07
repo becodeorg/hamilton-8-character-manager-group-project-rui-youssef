@@ -1,5 +1,6 @@
 import createElement from "../modules/createElementFactory.js";
 import appendChilds from "../modules/appendChildren.js";
+import axios from "axios";
 
 const fetchCharacterData = async () => {
   const containerToStore = document.querySelector(".container");

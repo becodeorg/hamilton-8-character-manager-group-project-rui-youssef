@@ -1,6 +1,7 @@
 import createElement from "./modules/createElementFactory";
 import appendChilds from "./modules/appendChildren.js";
 import searchBar from "./modules/searchBar";
+import axios from "axios";
 
 const containerDisplay = document.querySelector(".containerCards");
 
