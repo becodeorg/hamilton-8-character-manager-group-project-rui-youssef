@@ -6,7 +6,11 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgb(109, 80, 146) 18%, rgb(202, 86, 99) 67%);
+  background: linear-gradient(
+    90deg,
+    rgb(109, 80, 146) 18%,
+    rgb(202, 86, 99) 67%
+  );
   display: flex;
   flex-direction: column;
   gap: 5rem;
@@ -26,6 +30,11 @@ header h1 {
   border-bottom: 4px solid white;
 }
 
+.mandatory-image {
+  padding-top: 1rem;
+  color: white;
+  font-weight: bold;
+}
 main {
   width: 100%;
   display: flex;

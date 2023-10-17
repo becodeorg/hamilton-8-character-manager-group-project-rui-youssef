@@ -50,7 +50,7 @@ const getDataFromApi = async () => {
         sessionStorage.setItem("selectedCharacterId", element.id);
 
         // Navigate to the other page
-        location.href = "./html/singlePage.html";
+        location.href = "../dist/html/singlePage.html";
       });
 
       // Append the char container into the chars container
@@ -83,7 +83,7 @@ getDataFromApi();
 const buttonCreateChar = document.querySelector(".btn.long");
 buttonCreateChar.addEventListener("click", () => {
   sessionStorage.clear();
-  location.href = "./html/createChar.html";
+  location.href = "../dist/html/createChar.html";
 });
 
 searchBar();
